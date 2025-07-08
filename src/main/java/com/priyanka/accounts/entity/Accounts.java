@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 @Entity
 public class Accounts extends AuditEntity{
     @Id
