@@ -12,6 +12,7 @@ import com.priyanka.accounts.service.IAccountService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Random;
 
@@ -30,6 +31,8 @@ public class AccountServiceImpl implements IAccountService {
         if(customerAlreadyExists.isPresent()){
             throw new CustomerAlreadyExists("Customer Already registered with given number");
         }
+        customer.setCreatedBy("anonymous");
+        customer.setCreatedAt(LocalDateTime.now());
         Customer savedCustomer = customerRepository.save(customer);
         accountsRepository.save(createNewAccount(savedCustomer));
 
@@ -42,6 +45,8 @@ public class AccountServiceImpl implements IAccountService {
         accounts.setAccountNumber(randomAccNumber);
         accounts.setAccountType(AccountConstants.SAVINGS);
         accounts.setBranchAddress(AccountConstants.ADDRESS);
+        accounts.setCreatedBy("anonymous");
+        accounts.setCreatedAt(LocalDateTime.now());
         return accounts;
     }
 }
