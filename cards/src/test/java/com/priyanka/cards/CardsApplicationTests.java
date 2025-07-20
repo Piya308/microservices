@@ -1,4 +1,4 @@
-package com.cards.cards;
+package com.priyanka.cards;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
