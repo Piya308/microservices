@@ -109,7 +109,7 @@
 				<version>3.3.2</version>
 				<configuration>
 					<to>
-						<image>	priyanka/${project.artifactId}:v1</image>
+						<image>	pri308/${project.artifactId}:v1</image>
 					</to>
 				</configuration>
 			</plugin>
