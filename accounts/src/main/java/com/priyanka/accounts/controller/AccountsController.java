@@ -13,6 +13,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +24,22 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
 @Tag(name = "Accounts", description = "Operations related to account management")
-@AllArgsConstructor
 public class AccountsController {
 
+    @Autowired
     private IAccountService accountService;
 
-    @GetMapping("sayHello")
-    public String sayHelloWorld(){
-        return "Hello World Everyone";
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Operation(
+            summary = "Get build information",
+            description = "Http Status Internal Server Error")
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildVersion(){
+        return
+                ResponseEntity.status(HttpStatus.OK)
+                        .body(buildVersion);
     }
 
     @Operation(
