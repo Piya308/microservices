@@ -1,6 +1,7 @@
 package com.priyanka.accounts.controller;
 
 import com.priyanka.accounts.constants.AccountConstants;
+import com.priyanka.accounts.dto.AccountContactInfoDto;
 import com.priyanka.accounts.dto.CustomerDto;
 import com.priyanka.accounts.dto.ErrorResponseDto;
 import com.priyanka.accounts.dto.ResponseDto;
@@ -36,6 +37,9 @@ public class AccountsController {
     @Autowired
     private Environment environment;
 
+    @Autowired
+    AccountContactInfoDto accountContactInfoDto;
+
     @Operation(
             summary = "Get build information",
             description = "Http Status Internal Server Error")
@@ -54,6 +58,16 @@ public class AccountsController {
         return
                 ResponseEntity.status(HttpStatus.OK)
                         .body(environment.getProperty("JAVA_HOME"));
+    }
+
+    @Operation(
+            summary = "Get contact info information",
+            description = "Http Status Internal Server Error")
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountContactInfoDto> getContactInfo(){
+        return
+                ResponseEntity.status(HttpStatus.OK)
+                        .body(accountContactInfoDto);
     }
 
     @Operation(
