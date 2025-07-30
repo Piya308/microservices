@@ -1,0 +1,16 @@
+spring:
+  config:
+    activate:
+      on-profile: "prod"
+
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to mybank , account related prod api"
+  contactDetails:
+    name: "jayshri gaikwad"
+    email: "jayshri@gmail.com"
+  onCallSupport:
+    - 5300404094
+    - 4839994939
