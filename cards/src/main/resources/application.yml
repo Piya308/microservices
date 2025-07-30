@@ -1,6 +1,6 @@
 spring:
   application:
-    name: accounts
+    name: cards
 
   datasource:
     url: jdbc:h2:mem:testdb
@@ -22,18 +22,17 @@ spring:
       - "application_prod.yml"
       - "application_qa.yml"
 
-  profile:
-    active:
-      - "qa"
+  profiles:
+    active: "qa"
 
 server:
-  port: 8080
+  port: 9000
 
 build:
-  version: "3.0"
+  version: "1.0"
 
-accounts:
-  message: "Welcome to mybank , account related api"
+cards:
+  message: "Welcome to mybank , cards related api"
   contactDetails:
     name: "priyanka gaikwad"
     email: "priyanka@gmail.com"

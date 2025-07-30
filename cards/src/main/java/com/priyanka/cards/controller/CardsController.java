@@ -1,6 +1,7 @@
 package com.priyanka.cards.controller;
 
 import com.priyanka.cards.constants.CardsConstants;
+import com.priyanka.cards.dto.CardsContactInfoDto;
 import com.priyanka.cards.dto.CardsDto;
 import com.priyanka.cards.dto.ErrorResponseDto;
 import com.priyanka.cards.dto.ResponseDto;
@@ -14,11 +15,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
 
 @Tag(
         name = "CRUD REST APIs for Cards",
@@ -26,10 +32,51 @@ import org.springframework.web.bind.annotation.*;
 )
 @RestController
 @RequestMapping(path = "/api", produces = {MediaType.APPLICATION_JSON_VALUE})
-@AllArgsConstructor
 @Validated
 public class CardsController {
+    @Autowired
     private ICardsService iCardsService;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Autowired
+    private Environment environment;
+
+    @Autowired
+    CardsContactInfoDto cardsContactInfoDto;
+
+    @Operation(
+            summary = "Get build information",
+            description = "Http Status Internal Server Error")
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildVersion(){
+        return
+                ResponseEntity.status(HttpStatus.OK)
+                        .body(buildVersion);
+    }
+
+    @Operation(
+            summary = "Get java version information",
+            description = "Http Status Internal Server Error")
+    @GetMapping("/java-version")
+    public ResponseEntity<String> getJavaVersion(){
+        return
+                ResponseEntity.status(HttpStatus.OK)
+
+                        .body(Arrays.toString(environment.getActiveProfiles()));
+    }
+
+    @Operation(
+            summary = "Get contact info information",
+            description = "Http Status Internal Server Error")
+    @GetMapping("/contact-info")
+    public ResponseEntity<CardsContactInfoDto> getContactInfo(){
+        return
+                ResponseEntity.status(HttpStatus.OK)
+                        .body(cardsContactInfoDto);
+    }
+
 
     @Operation(
             summary = "Create Card REST API",

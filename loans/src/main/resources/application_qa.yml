@@ -7,7 +7,7 @@ build:
   version: "2.0"
 
 accounts:
-  message: "Welcome to mybank , account related qa api"
+  message: "Welcome to mybank , loans related qa api"
   contactDetails:
     name: "poonam gaikwad"
     email: "poonam@gmail.com"
