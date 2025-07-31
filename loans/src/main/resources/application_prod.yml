@@ -6,7 +6,7 @@ spring:
 build:
   version: "1.0"
 
-accounts:
+loans:
   message: "Welcome to mybank , loans related prod api"
   contactDetails:
     name: "jayshri gaikwad"

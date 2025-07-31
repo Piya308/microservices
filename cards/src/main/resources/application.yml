@@ -23,7 +23,8 @@ spring:
       - "application_qa.yml"
 
   profiles:
-    active: "qa"
+    active:
+      - "qa"
 
 server:
   port: 9000
