@@ -1,13 +1,8 @@
-spring:
-  config:
-    activate:
-      on-profile : "qa"
-
 build:
-  version: "2.0"
+  version: "3.0"
 
 accounts:
-  message: "Welcome to mybank , account related qa api"
+  message: "Welcome to mybank , accounts related prod api all"
   contactDetails:
     name: "poonam gaikwad"
     email: "poonam@gmail.com"
