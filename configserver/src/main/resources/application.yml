@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: "configserver"
+
+
+  profiles:
+    active: native
+
+  cloud:
+    config:
+      server:
+        native:
+          #if you config files is in same project then write below
+#          search-locations: "classpath:/config"
+        #if your config files are kept in file system
+          search-locations: "file:///H:/config"
+
+server:
+  port: 8071
+
+
