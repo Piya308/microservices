@@ -4,16 +4,23 @@ spring:
 
 
   profiles:
-    active: native
+#    active: native
+    active: git
 
   cloud:
     config:
       server:
-        native:
+        git:
+          uri: "https://github.com/Piya308/config-repo.git"
+          default-label: main
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+#        native:
           #if you config files is in same project then write below
 #          search-locations: "classpath:/config"
         #if your config files are kept in file system
-          search-locations: "file:///H:/config"
+#          search-locations: "file:///H:/config"
 
 server:
   port: 8071
