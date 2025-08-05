@@ -18,13 +18,13 @@ spring:
     show-sql: true
 
   config:
-    import:
-      - "application_prod.yml"
-      - "application_qa.yml"
+    import: "configserver:http://localhost:8071/"
+#      - "application_prod.yml"
+#      - "application_qa.yml"
 
   profiles:
     active:
-      - "qa"
+      - "prod"
 
 server:
   port: 9000
