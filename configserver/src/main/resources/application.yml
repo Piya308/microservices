@@ -11,6 +11,7 @@ spring:
     config:
       server:
         git:
+#          fetches config files from git repo
           uri: "https://github.com/Piya308/config-repo.git"
           default-label: main
           timeout: 5
@@ -21,6 +22,8 @@ spring:
 #          search-locations: "classpath:/config"
         #if your config files are kept in file system
 #          search-locations: "file:///H:/config"
+encrypt:
+  key: mK3P862OzNNaClcOzQFBT9Nb2OCGj36U
 
 server:
   port: 8071
