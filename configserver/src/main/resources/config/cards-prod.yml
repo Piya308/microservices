@@ -2,7 +2,7 @@ build:
   version: "1.0"
 
 cards:
-  message: "Welcome to mybank , cards related prod api"
+  message: "Welcome to mybank , cards related production api"
   contactDetails:
     name: "poonam gaikwad"
     email: "poonam@gmail.com"
