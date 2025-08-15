@@ -21,6 +21,11 @@ spring:
     import: "configserver:http://localhost:8071/"
   #      - "application_prod.yml"
 #      - "application_qa.yml"
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
   profiles:
     active:
@@ -40,3 +45,9 @@ loans:
   onCallSupport:
     - 5300404094
     - 4839994939
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
