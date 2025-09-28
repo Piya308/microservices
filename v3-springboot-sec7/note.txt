@@ -1,0 +1,7 @@
+in this we will get rid of rabbit mq dependency from pom.xml of every microservices.
+
+Simplification: Removing Spring Cloud Bus and RabbitMQ dependencies to reduce container load and improve performance on lower-spec machines.
+
+Config Cleanup: Deleting RabbitMQ properties from application.yml and related dependencies from pom.xml across all services.
+
+Dockerized MySQL: Using Docker to spin up isolated MySQL containers for each microservice, avoiding manual installation and saving system resources.

@@ -1,0 +1,11 @@
+build:
+  version: "2.0"
+
+loans:
+  message: "Welcome to mybank , loans related qa api"
+  contactDetails:
+    name: "poonam gaikwad"
+    email: "poonam@gmail.com"
+  onCallSupport:
+    - 5300404094
+    - 4839994939

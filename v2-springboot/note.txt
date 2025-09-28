@@ -1,0 +1,25 @@
+
+((Section 4, 5, 6))in this v2-springboot project
+
+3 Microservices folders Each folder likely contains a Spring Boot application with its own business logic, database access, and REST endpoints.
+
+1 Config Server folder A Spring Cloud Config Server that pulls configuration from a Git repository and serves it to all microservices.
+
+1 Docker Compose folder Used to orchestrate all services (microservices, config server, RabbitMQ, etc.) in containers for local or production deployment.
+
+--to connect to a Spring Cloud Config Server
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-config</artifactId>
+</dependency>
+
+
+--Spring Boot application to use Spring Cloud Bus with AMQP 
+(typically RabbitMQ) for distributed messaging and 
+configuration updates.
+
+<dependency>
+ <groupId>org.springframework.cloud</groupId>
+ <artifactId>spring-cloud-starter-bus-amqp</artifactId> 
+<version>4.2.1</version> 
+</dependency>

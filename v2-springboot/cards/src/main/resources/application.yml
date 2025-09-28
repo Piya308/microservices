@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: cards
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    h2:
+      console:
+        enabled: true
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+#      - "application_prod.yml"
+#      - "application_qa.yml"
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  profiles:
+    active:
+      - "prod"
+
+server:
+  port: 9000
+
+build:
+  version: "1.0"
+
+cards:
+  message: "Welcome to mybank , cards related api"
+  contactDetails:
+    name: "priyanka gaikwad"
+    email: "priyanka@gmail.com"
+  onCallSupport:
+    - 5300404094
+    - 4839994939
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
